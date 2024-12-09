@@ -34,8 +34,7 @@ a {
 }
 
 #app {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('@/assets/images/bg_global.gif');
+  background: url('@/assets/images/bg_global.gif');
   min-width: 100vw;
   min-height: 100vh;
 }
@@ -51,7 +50,22 @@ a {
   border: 5px solid #9b258f;
   display: grid;
   grid-template-columns: 200px auto;
-  overflow: hidden;
+  position: relative;
+}
+
+.swooshes img {
+  position: absolute;
+  z-index: 2;
+
+  &:first-of-type {
+    top: -48px;
+    right: -8px;
+  }
+
+  &:last-of-type {
+    bottom: -54px;
+    left: -10px;
+  }
 }
 
 main {

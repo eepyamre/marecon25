@@ -14,6 +14,7 @@ import { Vendors } from '@/pages/Vendors';
 import { FAQ } from '@/pages/FAQ';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
+import swoosh from '@/assets/images/swoosh.png';
 import '@/style.scss';
 
 export function App() {
@@ -34,6 +35,10 @@ export function App() {
               <Route default component={NotFound} />
             </Router>
           </main>
+          <div className='swooshes'>
+            <img src={swoosh} alt='swoosh' />
+            <img src={swoosh} alt='swoosh' />
+          </div>
         </div>
       </div>
     </LocationProvider>

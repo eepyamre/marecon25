@@ -1,6 +1,8 @@
 .wrapper {
   background: #ee3897;
-  padding: 24px 0;
+  padding: 24px 0 32px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 
   nav {
     margin-top: 24px;

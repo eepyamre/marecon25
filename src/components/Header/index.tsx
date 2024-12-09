@@ -1,5 +1,7 @@
 import { useMemo } from 'preact/hooks';
 import { useLocation } from 'preact-iso';
+import { replaceWordOnPage } from '@/utils';
+import numgetImg from '@/assets/images/numbeam.png';
 import css from './style.module.scss';
 
 export function Header() {
@@ -21,7 +23,9 @@ export function Header() {
   }, [location.path]);
 
   const numget = () => {
-    console.assert(false, 'TODO');
+    const app = document.querySelector<HTMLDivElement>('#app');
+    app.style.background = `#c1c1c1 url(${numgetImg})`;
+    replaceWordOnPage('mare', 'Numget');
   };
 
   return (

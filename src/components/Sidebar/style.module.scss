@@ -1,0 +1,17 @@
+.wrapper {
+  background: #ee3897;
+  padding: 24px 0;
+
+  nav {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 22px;
+
+    a {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+  }
+}

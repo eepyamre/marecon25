@@ -12,8 +12,10 @@ export function Sidebar() {
         <a href={'/schedule'}>Schedule</a>
         <a href={'/faq'}>FAQ</a>
         <a href={'https://2024.marecon.live'}>Check Marecon 2024 archive</a>
-        <a href={'/404'}>Help the horsies</a>
-        <a href={'/404'}>Current Thread</a>
+        <a href={'/404'}>Help the horsies (TODO:)</a>
+        <a href={'https://boards.4chan.org/mlp/thread/41699523'}>
+          Current Thread
+        </a>
       </nav>
     </div>
   );

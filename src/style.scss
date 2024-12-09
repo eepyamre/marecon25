@@ -37,6 +37,7 @@ a {
   background: url('@/assets/images/bg_global.gif');
   min-width: 100vw;
   min-height: 100vh;
+  padding: 0 16px;
 }
 
 .global_wrapper {
@@ -58,7 +59,7 @@ a {
   z-index: 2;
 
   &:first-of-type {
-    top: -48px;
+    top: -52px;
     right: -8px;
   }
 

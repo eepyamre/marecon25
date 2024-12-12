@@ -18,7 +18,7 @@ export function Home() {
 
   return (
     <div class={css.wrapper}>
-      <h1 class={css.title}>(\oco/) Soon (\oco/)</h1>
+      <h1 class={css.title}>(\ Soon /)</h1>
       <h2 class={css.timer}>{remainig}</h2>
       <img class={css.img} src={teaParty} alt='mmm yummy tea ' />
     </div>

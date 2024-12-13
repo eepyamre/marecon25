@@ -26,7 +26,10 @@ const mareColors = {
 export function MeetThePonies() {
   const ref = useRef<HTMLCanvasElement>();
   const bgRef = useRef<HTMLCanvasElement>();
-  const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState<{
+    right: number;
+    name: string;
+  } | null>(null);
   const maresImg = new Image(3000, 2000);
   const bgImg = new Image(1280, 720);
   const maresRatio = 0.666;
@@ -44,9 +47,14 @@ export function MeetThePonies() {
 
     ctx.clearRect(0, 0, w, h);
 
-    const maresHeight = w * maresRatio;
-    const y = h - maresHeight;
-    ctx.drawImage(maresImg, 0, y, w, maresHeight);
+    // mares
+    const drawMares = () => {
+      const maresHeight = w * maresRatio;
+      const y = h - maresHeight;
+      ctx.drawImage(maresImg, 0, y, w, maresHeight);
+    };
+
+    drawMares();
   };
 
   const drawBg = () => {
@@ -73,31 +81,46 @@ export function MeetThePonies() {
     )}${data[1].toString(16)}`;
 
     if (mareColors.comfy.has(hex)) {
-      console.log('comfy');
+      setHover({
+        right: 450,
+        name: 'Comfy Cuddles',
+      });
+      drawFrame();
       return;
     }
     if (mareColors.nawni.has(hex)) {
-      console.log('nawni');
+      setHover({
+        right: 100,
+        name: 'Nawni',
+      });
+      drawFrame();
       return;
     }
     if (mareColors.everymare.has(hex)) {
-      console.log('everymare');
+      setHover({
+        right: 275,
+        name: 'Smiley Face',
+      });
+      drawFrame();
       return;
     }
   };
 
   useEffect(() => {
+    drawBg();
     drawFrame();
 
-    maresImg.addEventListener('load', drawFrame);
+    const fn = () => drawFrame();
+
+    maresImg.addEventListener('load', fn);
     ref.current.addEventListener('mousemove', hoverCheck);
     bgImg.addEventListener('load', drawBg);
-    addEventListener('resize', drawFrame);
+    addEventListener('resize', fn);
     addEventListener('resize', drawBg);
 
     return () => {
       ref.current.removeEventListener('mousemove', hoverCheck);
-      removeEventListener('resize', drawFrame);
+      removeEventListener('resize', fn);
       removeEventListener('resize', drawBg);
     };
   }, [ref, bgRef]);
@@ -110,7 +133,29 @@ export function MeetThePonies() {
         width={770}
         height={578}
       ></canvas>
-      <canvas ref={ref} class={css.canvas} width={770} height={578}></canvas>
+      <p class={`${css.clickText} ${hover ? css.active : ''}`}>
+        Click on the ponies to read about each of their unique personalities!
+      </p>
+      {hover && (
+        <div
+          style={{
+            '--right': `${hover.right}px`,
+          }}
+          class={`${css.name} ${hover ? css.active : ''}`}
+        >
+          <p>{hover.name}</p>
+        </div>
+      )}
+      <canvas
+        ref={ref}
+        class={css.canvas}
+        width={770}
+        height={578}
+        onMouseOut={() => {
+          drawFrame();
+          setHover(null);
+        }}
+      ></canvas>
     </div>
   );
 }

@@ -151,6 +151,9 @@ export function MeetThePonies() {
         class={css.canvas}
         width={770}
         height={578}
+        onClick={() => {
+          alert('TODO');
+        }}
         onMouseOut={() => {
           drawFrame();
           setHover(null);

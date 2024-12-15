@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
-import mares from '@/assets/images/mares.png';
+import maresImage from '@/assets/images/mares.png';
 import bg from '@/assets/images/bg.png';
+import smiley from '@/assets/images/smiley.gif';
+import nawni from '@/assets/images/nawni.png';
+import comfy from '@/assets/images/comfy.png';
+import swoosh from '@/assets/images/swoosh2.png';
 import css from './style.module.scss';
 
 const mareColors = {
@@ -23,17 +27,46 @@ const mareColors = {
   nawni: new Set(['#ed241c', '#7f7f7f', '#346ad5', '#282777']),
 };
 
+enum Mares {
+  SMILEY,
+  NAWNI,
+  COMFY,
+}
+
+const mares = {
+  [Mares.SMILEY]: {
+    name: 'Smiley Face',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+    img: smiley,
+  },
+  [Mares.NAWNI]: {
+    name: 'Nawni',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+    img: nawni,
+  },
+  [Mares.COMFY]: {
+    name: 'Comfy Cuddles',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+    img: comfy,
+  },
+};
+
 export function MeetThePonies() {
   const ref = useRef<HTMLCanvasElement>();
   const bgRef = useRef<HTMLCanvasElement>();
   const [hover, setHover] = useState<{
     right: number;
-    name: string;
+    mare: Mares;
   } | null>(null);
+  const [mare, setMare] = useState<Mares>(Mares.COMFY);
+  const [show, setShow] = useState(false);
   const maresImg = new Image(3000, 2000);
   const bgImg = new Image(1280, 720);
   const maresRatio = 0.666;
-  maresImg.src = mares;
+  maresImg.src = maresImage;
   bgImg.src = bg;
 
   const drawFrame = () => {
@@ -83,7 +116,7 @@ export function MeetThePonies() {
     if (mareColors.comfy.has(hex)) {
       setHover({
         right: 450,
-        name: 'Comfy Cuddles',
+        mare: Mares.COMFY,
       });
       drawFrame();
       return;
@@ -91,7 +124,7 @@ export function MeetThePonies() {
     if (mareColors.nawni.has(hex)) {
       setHover({
         right: 100,
-        name: 'Nawni',
+        mare: Mares.NAWNI,
       });
       drawFrame();
       return;
@@ -99,7 +132,7 @@ export function MeetThePonies() {
     if (mareColors.everymare.has(hex)) {
       setHover({
         right: 275,
-        name: 'Smiley Face',
+        mare: Mares.SMILEY,
       });
       drawFrame();
       return;
@@ -125,6 +158,15 @@ export function MeetThePonies() {
     };
   }, [ref, bgRef]);
 
+  const onBack = () => {
+    setShow(false);
+  };
+
+  const onClickMare = () => {
+    setShow(true);
+    setMare(hover.mare);
+  };
+
   return (
     <div class={css.wrapper}>
       <canvas
@@ -143,7 +185,7 @@ export function MeetThePonies() {
           }}
           class={`${css.name} ${hover ? css.active : ''}`}
         >
-          <p>{hover.name}</p>
+          <p>{mares[hover.mare].name}</p>
         </div>
       )}
       <canvas
@@ -151,14 +193,29 @@ export function MeetThePonies() {
         class={css.canvas}
         width={770}
         height={578}
-        onClick={() => {
-          alert('TODO');
-        }}
+        onClick={onClickMare}
         onMouseOut={() => {
           drawFrame();
           setHover(null);
         }}
       ></canvas>
+      <div class={`${css.ponyWrapper} ${show ? css.active : ''}`}>
+        <div class={`${css.titleWrapper} ${show ? css.active : ''}`}>
+          <h2 class={css.title}>{mares[mare].name}</h2>
+          <img src={swoosh} alt='swoosh' class={css.swoosh} />
+        </div>
+        <img
+          class={`${css.image} ${show ? css.active : ''}`}
+          src={mares[mare].img}
+          alt={mares[mare].name}
+        />
+        <div class={`${css.content} ${show ? css.active : ''}`}>
+          <p>{mares[mare].description}</p>
+          <button onClick={onBack} class={css.btn}>
+            Select another pony
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

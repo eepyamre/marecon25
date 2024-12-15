@@ -68,3 +68,124 @@
     transform: translateX(0px);
   }
 }
+
+.ponyWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: url('@/assets/images/bg.png') bottom center no-repeat;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  z-index: 2;
+  background-size: 770px 100%;
+  background-position: -770px;
+  transition: background-position 0.4s ease-out;
+  pointer-events: none;
+
+  &.active {
+    pointer-events: all;
+    background-position: 0;
+  }
+}
+
+.titleWrapper {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0 24px;
+  top: 16px;
+  right: 50px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(110%);
+  z-index: 2;
+
+  &.active {
+    transform: translateX(0);
+
+    .swoosh,
+    .title {
+      transform: translateX(0);
+    }
+  }
+}
+
+.title {
+  font-family: 'Equestria';
+  font-size: 5rem;
+  color: #bb097e;
+  line-height: normal;
+  text-shadow: 2px 0 0 #fd88c6, 0 2px 0 #fd88c6, 0 -2px 0 #fd88c6,
+    -2px 0 0 #fd88c6;
+  transition: all 0.35s ease-in-out;
+  transform: translateX(200%);
+}
+
+.swoosh {
+  height: 56px;
+  transition: all 0.4s ease-in-out;
+  transform: translateX(200%);
+}
+
+.content {
+  background-color: #fff;
+  color: #6c4e89;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 120px;
+  transition: all 0.25s ease-in-out;
+  transform: translateX(100%);
+
+  p {
+    transition: all 0.35s ease-in-out;
+    transform: translateX(110%);
+  }
+
+  &.active {
+    transform: translateX(0);
+    .btn,
+    p {
+      transform: translateX(0);
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  align-self: flex-end;
+  transition: all 0.3s ease-out;
+  transform: translateX(-100%);
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.btn {
+  font-family: 'Equestria';
+  width: 100%;
+  padding: 2px 0;
+  margin-top: auto;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 6px;
+  background: url('@/assets/images/btn_bg.png') #fee8f4;
+  text-shadow: 2px 0 0 #669fc0, 0 2px 0 #669fc0, 0 -2px 0 #669fc0,
+    -2px 0 0 #669fc0;
+  cursor: pointer;
+  box-shadow: inset 0 0 4px rgba(128, 128, 128, 0.229);
+  transition: transform 0.4s ease-in-out;
+  transform: translateX(110%);
+
+  &:hover {
+    text-shadow: 2px 0 0 #bb097e, 0 2px 0 #bb097e, 0 -2px 0 #bb097e,
+      -2px 0 0 #bb097e;
+    box-shadow: inset 0 0 4px rgba(128, 128, 128, 0.5);
+    background: url('@/assets/images/btn_bg_active.png') #ffa2d4;
+  }
+}

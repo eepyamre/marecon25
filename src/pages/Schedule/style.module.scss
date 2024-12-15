@@ -1,7 +1,12 @@
 .wrapper {
   --widthColumns: 1;
   padding: 12px 24px;
-  max-width: calc(980px - 200px - 24px);
+  max-width: calc(980px - 200px - 12px);
+  transition: max-width 0.3s;
+
+  &.active {
+    max-width: calc(min(1360px + 24px, 100vw) - 200px - 32px);
+  }
 
   .dates {
     display: flex;

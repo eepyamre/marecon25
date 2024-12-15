@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 import { Tooltip } from '@/components/Tooltip';
 import { events } from './events';
@@ -8,6 +8,7 @@ export function Schedule() {
   const route = useRoute();
   const { day } = route.params;
   const list = events[day || 'friday'];
+  const [active, setActive] = useState(false);
   const [tooltipData, setTooltipData] = useState({
     position: [0, 0] as [number, number],
     text: '',
@@ -40,8 +41,17 @@ export function Schedule() {
     });
   };
 
+  useEffect(() => {
+    setActive(true);
+  }, []);
+
   return (
-    <div class={css.wrapper}>
+    <div class={`${css.wrapper} ${active ? css.active : ''}`}>
+      <style>
+        {`.global_wrapper {
+          max-  width: 1360px;
+        }`}
+      </style>
       <div class={css.dates}>
         <a href={'/schedule/friday'} class={css.date}>
           Friday

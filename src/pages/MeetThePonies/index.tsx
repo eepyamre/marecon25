@@ -129,7 +129,7 @@ export function MeetThePonies() {
 
   useEffect(() => {
     const parentRect = ref.current.parentElement!.getBoundingClientRect();
-    ref.current.width = Math.min(parentRect.width, 980);
+    ref.current.width = 770;
     ref.current.height = 578;
 
     const canvases = [

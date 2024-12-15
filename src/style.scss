@@ -42,6 +42,7 @@ a {
 .global_wrapper {
   max-width: 980px;
   margin: 0 auto;
+  transition: max-width 0.3s;
 }
 
 .grid {

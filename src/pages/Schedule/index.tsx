@@ -49,7 +49,7 @@ export function Schedule() {
     <div class={`${css.wrapper} ${active ? css.active : ''}`}>
       <style>
         {`.global_wrapper {
-          max-  width: 1360px;
+          max-width: 1360px;
         }`}
       </style>
       <div class={css.dates}>

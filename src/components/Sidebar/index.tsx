@@ -4,7 +4,7 @@ import css from './style.module.scss';
 export function Sidebar() {
   return (
     <div class={css.wrapper}>
-      <img src={logo} alt='marecon!' />
+      <img src={logo} alt='marecon!' class={css.logo} />
       <nav>
         <a href={'/'}>Home</a>
         <a href={'/meet_the_ponies'}>Meet the Ponies</a>

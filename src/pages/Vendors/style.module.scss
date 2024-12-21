@@ -5,3 +5,75 @@
   height: 100%;
   overflow: hidden;
 }
+
+// .wrapper {
+//   padding: 12px 24px;
+//   max-height: 578px;
+//   overflow: auto;
+
+//   h2 {
+//     font-size: 2rem;
+//   }
+
+//   a {
+//     text-decoration: none;
+
+//     &:hover {
+//       text-decoration: none;
+//       img {
+//         filter: brightness(1);
+//       }
+//     }
+//   }
+// }
+
+// .vendor {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1 0 0;
+//   gap: 7px;
+
+//   img {
+//     filter: brightness(0.9);
+//     width: 100%;
+//     transition: all 0.15s ease;
+//   }
+// }
+
+// .images {
+//   display: flex;
+//   overflow: hidden;
+//   img {
+//     flex-shrink: 0;
+//   }
+// }
+
+// .imagesWrapper {
+//   position: relative;
+// }
+
+// .imgIdx {
+//   position: absolute;
+//   width: 100%;
+//   height: 5px;
+//   display: flex;
+//   gap: 4px;
+
+//   div {
+//     width: 100%;
+//     height: 5px;
+//     border-radius: 4px;
+//     background: #cccccc4d;
+//     transition: all 0.15s ease;
+
+//     &:global(.active) {
+//       background: #cccccca7;
+//     }
+//   }
+// }
+
+// .vendors {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   gap: 24px;
+// }

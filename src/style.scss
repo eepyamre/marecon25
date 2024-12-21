@@ -31,9 +31,17 @@ a {
     text-decoration: underline;
   }
 }
-
 #app {
-  background: url('@/assets/images/bg_global.gif');
+  background: url('@/assets/images/bg_global.png'),
+    #0425809f
+      linear-gradient(
+        200deg,
+        hsla(300, 30%, 43%, 0.9) 0%,
+        hsla(300, 30%, 43%, 0.8) 48%,
+        hsla(300, 30%, 43%, 0.7) 100%
+      );
+  background-size: 1020px, cover;
+  background-position: 69px 25px, 0px;
   min-width: 100vw;
   min-height: 100vh;
   padding: 0 16px;

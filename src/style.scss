@@ -45,6 +45,7 @@ a {
   min-width: 100vw;
   min-height: 100vh;
   padding: 0 16px;
+  padding-bottom: 50px;
 }
 
 .global_wrapper {
@@ -60,6 +61,10 @@ a {
   display: grid;
   grid-template-columns: 200px auto;
   position: relative;
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+  }
 }
 
 .swooshes img {
@@ -74,6 +79,18 @@ a {
   &:last-of-type {
     bottom: -54px;
     left: -10px;
+  }
+
+  @media (max-width: 768px) {
+    height: 50px;
+
+    &:first-of-type {
+      top: -32px;
+    }
+
+    &:last-of-type {
+      bottom: -34px;
+    }
   }
 }
 

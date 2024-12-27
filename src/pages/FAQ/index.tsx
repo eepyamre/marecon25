@@ -22,7 +22,9 @@ export function FAQ() {
       </div>
       <div>
         <h3>How do I participate?</h3>
-        <p>TODO:</p>
+        <a target={'_blank'} href={'https://forms.gle/kXxHwiyC1iBdmTFT8'}>
+          https://forms.gle/kXxHwiyC1iBdmTFT8
+        </a>
       </div>
       <div>
         <h3>Can I do something other than a panel for marecon?</h3>

@@ -34,8 +34,6 @@ export const formatTimeUntil = (targetUnixTime: number) => {
 export const replaceWordOnPage = (targetWord: string, newWord: string) => {
   const replaceInTextNodes = (node: HTMLElement) => {
     if (node.nodeType === Node.TEXT_NODE) {
-      console.log(node.textContent);
-
       node.textContent = node.textContent.replace(
         new RegExp(`${targetWord}`, 'ig'),
         newWord

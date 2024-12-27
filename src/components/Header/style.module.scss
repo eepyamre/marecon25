@@ -1,5 +1,8 @@
 .wrapper {
   padding: 12px 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 
   .logo {
     cursor: pointer;
@@ -7,5 +10,20 @@
 
   .breadcrumbs {
     margin-top: 6px;
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 24px;
+  }
+}
+
+.toggle {
+  display: none;
+
+  width: 32px;
+  height: 32px;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 }

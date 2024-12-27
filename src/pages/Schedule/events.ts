@@ -34,22 +34,6 @@ export const events = {
         width: 3,
       },
     ],
-    track3: [
-      {
-        title: 'Test',
-        width: 2,
-      },
-      null,
-      {
-        title: 'Test 2',
-        width: 1,
-      },
-      null,
-      {
-        title: 'Test 2',
-        width: 3,
-      },
-    ],
   },
   saturday: {
     track1: [
@@ -85,22 +69,6 @@ export const events = {
         width: 3,
       },
     ],
-    track3: [
-      {
-        title: 'Test',
-        width: 2,
-      },
-      null,
-      {
-        title: 'Test 2',
-        width: 1,
-      },
-      null,
-      {
-        title: 'Test 2',
-        width: 3,
-      },
-    ],
   },
   sunday: {
     track1: [
@@ -130,22 +98,6 @@ export const events = {
         width: 1,
       },
       null,
-      null,
-      {
-        title: 'Test 2',
-        width: 3,
-      },
-    ],
-    track3: [
-      {
-        title: 'Test',
-        width: 2,
-      },
-      null,
-      {
-        title: 'Test 2',
-        width: 1,
-      },
       null,
       {
         title: 'Test 2',

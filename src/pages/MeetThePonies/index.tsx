@@ -19,7 +19,7 @@ const mares = {
   [Mares.COMFY]: {
     name: 'Comfy Cuddles',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit! ',
     img: comfy,
   },
   [Mares.NAWNI]: {
@@ -119,6 +119,7 @@ export function MeetThePonies() {
       });
       drawFrame();
     }
+
     if (!hovered) {
       setHover({
         ...hover,
@@ -129,8 +130,8 @@ export function MeetThePonies() {
 
   useEffect(() => {
     const parentRect = ref.current.parentElement!.getBoundingClientRect();
-    ref.current.width = 770;
-    ref.current.height = 578;
+    ref.current.width = Math.max(770, parentRect.width);
+    ref.current.height = Math.max(578, parentRect.height);
 
     const canvases = [
       document.createElement('canvas'),
@@ -148,7 +149,19 @@ export function MeetThePonies() {
     drawBg();
     drawFrame();
 
-    const fn = () => drawFrame();
+    const fn = () => {
+      const parentRect = ref.current.parentElement!.getBoundingClientRect();
+      ref.current.width = Math.min(770, parentRect.width);
+      ref.current.height = Math.min(578, parentRect.height);
+      offscreenCanvases.current.forEach((item) => {
+        item.width = ref.current.width;
+        item.height = ref.current.height;
+      });
+      updateOffscren(canvases[0], maresComfy);
+      updateOffscren(canvases[1], maresNawni);
+      updateOffscren(canvases[2], maresSmiley);
+      drawFrame();
+    };
 
     const loaded = {
       comfy: false,
@@ -172,9 +185,8 @@ export function MeetThePonies() {
       if (!Object.values(loaded).includes(false)) fn();
     });
     bgImg.addEventListener('load', drawBg);
-    updateOffscren(canvases[0], maresComfy);
-    updateOffscren(canvases[1], maresNawni);
-    updateOffscren(canvases[2], maresSmiley);
+
+    fn();
 
     addEventListener('resize', fn);
     addEventListener('resize', drawBg);
@@ -189,7 +201,10 @@ export function MeetThePonies() {
     setShow(false);
   };
 
-  const onClickMare = () => {
+  const onClickMare = (e) => {
+    if (window.innerWidth < 768) {
+      hoverCheck(e);
+    }
     setShow(true);
     if (hover) setMare(hover.mare);
   };
@@ -235,6 +250,7 @@ export function MeetThePonies() {
           <h2 class={css.title}>{mares[mare].name}</h2>
           <img src={swoosh} alt='swoosh' class={css.swoosh} />
         </div>
+        <div class={css.hidden} />
         <img
           class={`${css.image} ${show ? css.active : ''}`}
           src={mares[mare].img}

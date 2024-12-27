@@ -21,4 +21,11 @@
       1px 1px 4px #000;
     transform: rotate(-19deg) translateY(70px);
   }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 1rem;
+      transform: rotate(-19deg) translateY(40px);
+    }
+  }
 }

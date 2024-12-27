@@ -16,14 +16,21 @@ import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import swoosh from '@/assets/images/swoosh.png';
 import '@/style.scss';
+import { useState } from 'preact/hooks';
 
 export function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <LocationProvider>
       <div className='global_wrapper'>
-        <Header />
-        <div class='grid'>
-          <Sidebar />
+        <Header toggleSidebar={toggleSidebar} />
+        <div class={`grid`}>
+          <Sidebar open={isSidebarOpen} close={() => setIsSidebarOpen(false)} />
           <main>
             <Router>
               <Route path='/' component={Home} />

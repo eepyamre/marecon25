@@ -1,11 +1,36 @@
 import logo from '@/assets/images/logo.png';
 import css from './style.module.scss';
+import { useEffect } from 'preact/hooks';
 
-export function Sidebar() {
+export function Sidebar({ open, close }: { open: boolean; close: () => void }) {
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        open &&
+        event.target instanceof HTMLElement &&
+        !event.target.closest('.sidebar')
+      ) {
+        close();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open, close]);
+
   return (
-    <div class={css.wrapper}>
+    <div class={`${css.wrapper} ${open ? css.open : ''} sidebar`}>
       <img src={logo} alt='marecon!' class={css.logo} />
-      <nav>
+      <nav
+        onClick={(e) => {
+          if ((e.target as HTMLElement).nodeName === 'A') {
+            close();
+          }
+        }}
+      >
         <a href={'/'}>Home</a>
         <a href={'/meet_the_ponies'}>Meet the Ponies</a>
         <a href={'/vendors'}>Vendors</a>

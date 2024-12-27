@@ -51,15 +51,22 @@ export function MeetThePonies() {
   });
   const [mare, setMare] = useState<Mares>(Mares.COMFY);
   const [show, setShow] = useState(false);
-  const maresComfy = new Image(3000, 2000);
-  const maresSmiley = new Image(3000, 2000);
-  const maresNawni = new Image(3000, 2000);
-  const bgImg = new Image(1280, 720);
+  let maresComfy = null;
+  let maresSmiley = null;
+  let maresNawni = null;
+  let bgImg = null;
+
+  if (typeof window !== 'undefined') {
+    maresComfy = new Image(3000, 2000);
+    maresSmiley = new Image(3000, 2000);
+    maresNawni = new Image(3000, 2000);
+    bgImg = new Image(1280, 720);
+    maresComfy.src = maresComfyImg;
+    maresSmiley.src = maresSmileyImg;
+    maresNawni.src = maresNawniImg;
+    bgImg.src = bg;
+  }
   const maresRatio = 0.666;
-  maresComfy.src = maresComfyImg;
-  maresSmiley.src = maresSmileyImg;
-  maresNawni.src = maresNawniImg;
-  bgImg.src = bg;
 
   const drawFrame = () => {
     if (!ref.current) return;

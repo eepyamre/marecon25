@@ -142,6 +142,23 @@ export function Schedule() {
     fetchData();
   }, [dayIdx]);
 
+  useEffect(() => {
+    const fn = (e: TouchEvent) => {
+      if (tooltipData.visible) {
+        e.preventDefault();
+        setTooltipData({
+          position: [0, 0],
+          visible: false,
+          text: '',
+        });
+      }
+    };
+    addEventListener('touchend', fn);
+    return () => {
+      removeEventListener('touchend', fn);
+    };
+  }, [tooltipData]);
+
   const mouseMove = (e: MouseEvent) => {
     if (e.target instanceof HTMLElement && e.target.dataset.trackdescription) {
       setTooltipData({

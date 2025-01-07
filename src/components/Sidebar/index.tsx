@@ -37,8 +37,13 @@ export function Sidebar({ open, close }: { open: boolean; close: () => void }) {
         <a href={'/schedule'}>Schedule</a>
         <a href={'/faq'}>FAQ</a>
         <a href={'https://2024.marecon.live'}>Check Marecon 2024 archive</a>
-        <a href={'/404'}>Help the horsies (TODO:)</a>
-        <a href={'https://boards.4chan.org/mlp/thread/41699523'}>
+        <a target={'_blank'} href={'https://fallenoak.org/'}>
+          Help the horsies
+        </a>
+        <a
+          target={'_blank'}
+          href={'https://boards.4chan.org/mlp/thread/41798607'}
+        >
           Current Thread
         </a>
       </nav>

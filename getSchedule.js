@@ -1,5 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { google } from 'googleapis';
+import cron from 'node-cron';
 
 const schedule = [[], [], []];
 
@@ -78,4 +79,6 @@ const getSchedule = async () => {
   writeJSON();
 };
 
-getSchedule();
+cron.schedule('0 * * * *', () => {
+  getSchedule();
+});

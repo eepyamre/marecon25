@@ -31,7 +31,7 @@ export function FAQ() {
           changes were made and experiments ran marecon 2024 was great fun and a
           big success, and we're dedicated to continue improving and trying new
           things for 2025 and beyond! If you want to learn more about marecon's
-          early years, check out this panel from /Mare/con 2023
+          early years, check out this panel from /Mare/con 2023{' '}
           <a
             target={'_blank'}
             href='https://pony.tube/w/rfci7WEiBCxfBuYvkLLdqa'

@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 import { Tooltip } from '@/components/Tooltip';
 import css from './style.module.scss';
+import { scheduler } from 'node:timers/promises';
 
 type TrackData = {
   title: string;
@@ -10,8 +11,7 @@ type TrackData = {
   time: Date;
 };
 
-const startDates = [1740771000000, 1740835800000, 1740922200000];
-
+const min15 = 15 * 60 * 1000;
 export function Schedule() {
   const route = useRoute();
   const { day } = route.params;
@@ -41,8 +41,15 @@ export function Schedule() {
     text: '',
     visible: false,
   });
+  const schedule = useRef<HTMLDivElement>();
 
   useEffect(() => {
+    schedule.current &&
+      schedule.current.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
     const fetchData = async () => {
       const response = await fetch('/schedule.json');
       const result = (await response.json()) as {
@@ -95,52 +102,66 @@ export function Schedule() {
       track1 = parseTracks(r1);
       track2 = parseTracks(r2);
 
-      if (track1[0].time < track2[0].time) {
-        const diffBlocks =
-          (track2[0].time.getTime() - track1[0].time.getTime()) /
-          1000 /
-          60 /
-          15;
-
-        for (let j = 0; j < diffBlocks; j++) {
-          track2.unshift(null);
-        }
-      }
-
       const obj: typeof events = {
         track1,
         track2,
       };
 
-      const maxTrack = track1.length > track2.length ? track1 : track2;
-      const minTrack = track1.length > track2.length ? track2 : track1;
-
-      let startTime = (maxTrack[0] || minTrack[0]).time.getTime();
-      let lastTime = startTime + 15 * 60 * 1000;
+      const t0Time = track1[0]?.time.getTime();
+      const t1Time = track2[0]?.time.getTime();
+      let startTime = t0Time < t1Time ? t0Time : t1Time;
+      let lastTime = startTime + min15;
       let times: Date[] = [new Date(startTime)];
-      for (let j = 1; j < (maxTrack[0] || minTrack[0]).width; j++) {
-        times.push(new Date(lastTime));
-        lastTime += 15 * 60 * 1000;
-      }
-      for (let i = 1; i < maxTrack.length; i++) {
-        const item = maxTrack[i];
 
+      for (let i = track1.length - 1; i >= 0; i--) {
+        const item = track1[i];
+        const skipped = track1.length - 1 - i;
         if (item) {
-          for (let j = 0; j < item.width; j++) {
-            times.push(new Date(lastTime));
-            lastTime += 15 * 60 * 1000;
-          }
-        } else {
-          times.push(new Date(lastTime));
-          lastTime += 15 * 60 * 1000;
+          lastTime = item.time.getTime() + item.width * min15 + skipped * min15;
+          break;
         }
       }
+
+      for (let i = track2.length - 1; i >= 0; i--) {
+        const item = track2[i];
+        if (item) {
+          const time = item.time.getTime();
+          const skipped = track2.length - 1 - i;
+          if (time > lastTime) {
+            lastTime =
+              item.time.getTime() + item.width * min15 + skipped * min15;
+          }
+          break;
+        }
+      }
+
+      for (let i = startTime + min15; i < lastTime; i += min15) {
+        times.push(new Date(i));
+      }
+      const arr1 = [];
+      const arr2 = [];
+
+      if (t0Time < t1Time) {
+        let l = Math.round((t1Time - t0Time) / min15);
+        while (l--) {
+          track2.unshift(null);
+        }
+      }
+      if (t1Time < t0Time) {
+        let l = Math.round((t0Time - t1Time) / min15);
+        while (l--) {
+          track1.unshift(null);
+        }
+      }
+
+      track1.unshift(...arr1);
+      track2.unshift(...arr2);
       setTimes(times);
       setEvents(obj);
     };
 
     fetchData();
-  }, [dayIdx]);
+  }, [dayIdx, schedule]);
 
   useEffect(() => {
     const fn = (e: TouchEvent) => {
@@ -153,6 +174,7 @@ export function Schedule() {
         });
       }
     };
+
     addEventListener('touchend', fn);
     return () => {
       removeEventListener('touchend', fn);
@@ -207,7 +229,12 @@ export function Schedule() {
           Sunday
         </a>
       </div>
-      <div class={css.schedule} onMouseMove={mouseMove} onMouseOut={mouseOut}>
+      <div
+        class={css.schedule}
+        ref={schedule}
+        onMouseMove={mouseMove}
+        onMouseOut={mouseOut}
+      >
         <div class={css.times}>
           <div class={css.timeTitle} />
           {times.map((time, i) => {
@@ -217,7 +244,7 @@ export function Schedule() {
                   hour12: true,
                   hour: '2-digit',
                   minute: '2-digit',
-                  timeZone: '-05:00',
+                  // timeZone: '-05:00',
                 })}
               </div>
             );

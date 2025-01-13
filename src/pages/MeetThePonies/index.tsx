@@ -15,23 +15,69 @@ enum Mares {
   SMILEY,
 }
 
+const randomIntFromInterval = (min = 0, max = 1) => {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+const nawniList = [
+  'She can spot a zebra from a mile away.',
+  'She’s been banned from Griffonstone on 8 separate occasions.',
+  'She’s the true identity of the mysterious Mare Do Well.',
+  'She once ate Celestia under the table at a cake eating contest.',
+  'She is the hacker known as 4chan.',
+  'She singlehoofedly caused the Scruffening.',
+  'She was dashieleaks this whole time',
+  'Her teats are even bigger than Milky Way’s.',
+  'She’s even more unhinged than Flutterschizo.',
+  'She made Discord cry.',
+  'She cucked Glimmer.',
+  'She killed Applejack’s parents.',
+  'She’s actually zippers with a toupee',
+  'She regularly spams the Marecon chat with porn on her sockpuppets. We asked her to stop but she just replied with our doxes.',
+  'She’s Parumpi’s top guy.',
+  'Her favorite word is █igger.',
+];
+
+const getTraits = () => {
+  const i = randomIntFromInterval(0, nawniList.length - 1);
+  let j = randomIntFromInterval(0, nawniList.length - 1);
+  while (i === j) {
+    j = randomIntFromInterval(0, nawniList.length - 1);
+  }
+  return `${nawniList[i]}
+${nawniList[j]}`;
+};
+
 const mares = {
   [Mares.COMFY]: {
     name: 'Comfy Cuddles',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit! ',
+    description: `She’s the comfiest pony around, it’s in her name! Comfy Cuddles is the earth pony in charge of keeping things at marecon comfy. Whether it’s brewing up some hot cocoa, tending to the fire, or handing out blankets, Comfy just wants to see you… well, comfy! She’s not one to talk much, except for the occasional nod or gesture towards the hot cocoa! She’s a very bright pony, but she’s also very reserved, only speaking up when needed to keep things on track or keep the other two mascots in line.
+
+She would never take another life. Maybe if they were being annoying or something, just to keep things comfy. Like, you know when you're on a 9 hour flight and there’s a baby crying the whole time? And you're just trying to relax, eat the crappy airplane food and watch and watch the newest Hollywood slop, but this baby just keeps screaming and crying and whining and crying. Then you hit some turbulence and you accidentally knock your drink over onto the meathead wearing the Eagles jersey, and he starts screaming in your ear about some shit. You try to apologize but he’s getting all up in your face, so you decide to go use the bathroom and get away from him, but then you trip on some jackass’s headphone cable and eat shit in the middle of the gangway, and then everyone starts laughing at you, even the baby. Yeah, she’d probably kill the baby or something.
+`,
     img: comfy,
   },
   [Mares.NAWNI]: {
     name: 'Nawni',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+    description: `This pony loves to ████! ████████ ████████ is a mysterious pegasus that likes to stay anonymous. She doesn’t like it when we use her real name, so we just call her “Nawni” (get it? Like anonymous!) Her cutie mark is a █████ with █████ - very cool! When we asked her what her special talent was, she said “doing ur mom, lul”. She can be a bit crude and kind of a wildcard at times, but we love her all the same!
+
+Some say that:
+${getTraits()}`,
     img: nawni,
   },
   [Mares.SMILEY]: {
     name: 'Smiley Face',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam quasi sunt deserunt odio animi iure quibusdam aperiam, nobis voluptatum dolore illum, aliquam minus aspernatur, quo minima velit obcaecati error sit!',
+    description: `She looks like a sugar cookie and she’s just as sweet! Smiley Face is a mare that embodies the best part of every mare… their smiley faces! We like to call her “Ms. Everymare” because of it. Smiley is very creative and goofy, she loves to have fun with her friends! She may not be the brightest spoon in the shed, but she has a huge heart! Talking to her is an absolute joy, she’s a little ray of sunshine that’s always looking to brighten your day!
+
+She’s also got the best butt of the three. I mean, holy crap man, have you seen that absolute dumper? 
+
+Maybe you could be her Mr. Everymare?
+
+Smiley has been nationally recognized as “The mare-iest mare that ever mared mare” 3 times in the last 2 years
+3 time reigning champion of the mare smackdown
+Grand champion of the “Smile Off” against every single other pony con mascot ever
+`,
     img: smiley,
   },
 };
@@ -39,6 +85,7 @@ const mares = {
 export function MeetThePonies() {
   const ref = useRef<HTMLCanvasElement>();
   const bgRef = useRef<HTMLCanvasElement>();
+  const content = useRef<HTMLDivElement>();
   const offscreenCanvases = useRef<HTMLCanvasElement[]>([]);
   const [hover, setHover] = useState<{
     right: number;
@@ -213,6 +260,8 @@ export function MeetThePonies() {
       hoverCheck(e);
     }
     setShow(true);
+    content.current &&
+      content.current.scrollTo({ top: 0, behavior: 'instant' });
     if (hover) setMare(hover.mare);
   };
 
@@ -263,7 +312,7 @@ export function MeetThePonies() {
           src={mares[mare].img}
           alt={mares[mare].name}
         />
-        <div class={`${css.content} ${show ? css.active : ''}`}>
+        <div ref={content} class={`${css.content} ${show ? css.active : ''}`}>
           <p>{mares[mare].description}</p>
           <button onClick={onBack} class={css.btn}>
             Select another pony

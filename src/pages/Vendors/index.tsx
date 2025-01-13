@@ -30,6 +30,13 @@ export const Vendors = () => {
   return (
     <div class={css.wrapper}>
       <UnderMarestruction />
+      <a
+        class={`global_btn ${css.btn}`}
+        target={'_blank'}
+        href={'https://forms.gle/L1T3pik49oVndbUN9'}
+      >
+        Want to be a vendor?
+      </a>
       {/* <h2>Vendors</h2>
       <div class={css.vendors}>
         {new Array(12).fill(0).map((_, i) => (

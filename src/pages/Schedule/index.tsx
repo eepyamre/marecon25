@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useRoute } from 'preact-iso';
 import { Tooltip } from '@/components/Tooltip';
 import css from './style.module.scss';
-import { scheduler } from 'node:timers/promises';
 
 type TrackData = {
   title: string;
@@ -253,6 +252,13 @@ export function Schedule() {
         <div class={css.track}>{Track(events.track1, 1)}</div>
         <div class={css.track}>{Track(events.track2, 2)}</div>
       </div>
+      <a
+        class={'global_btn'}
+        target={'_blank'}
+        href={'https://forms.gle/kXxHwiyC1iBdmTFT8'}
+      >
+        Apply for panels!
+      </a>
       {tooltipData.visible && (
         <Tooltip position={tooltipData.position}>{tooltipData.text}</Tooltip>
       )}

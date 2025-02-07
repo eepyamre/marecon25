@@ -3,7 +3,7 @@ import { formatTimeUntil } from '@/utils';
 import teaParty from '@/assets/images/tea_party.png';
 import css from './style.module.scss';
 
-const date = 1740735000;
+const date = 1740771000;
 
 export function Home() {
   const [remainig, setRemaining] = useState(formatTimeUntil(date));

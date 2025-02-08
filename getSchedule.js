@@ -2,13 +2,14 @@ import { writeFileSync } from 'node:fs';
 import { google } from 'googleapis';
 import cron from 'node-cron';
 
-const schedule = [[], [], []];
+let schedule = [[], [], []];
 
 const writeJSON = () => {
   writeFileSync('./public/schedule.json', JSON.stringify(schedule));
 };
 
 const getSchedule = async () => {
+  schedule = [[], [], []];
   const auth = new google.auth.GoogleAuth({
     keyFile: 'credentials.json',
     scopes: 'https://www.googleapis.com/auth/spreadsheets',

@@ -125,8 +125,9 @@ export function Schedule() {
         const item = track2[i];
         if (item) {
           const time = item.time.getTime();
+
           const skipped = track2.length - 1 - i;
-          if (time > lastTime) {
+          if (time >= lastTime) {
             lastTime =
               item.time.getTime() + item.width * min15 + skipped * min15;
           }

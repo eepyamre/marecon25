@@ -6,6 +6,7 @@ let schedule = [[], [], []];
 
 const writeJSON = () => {
   writeFileSync('./public/schedule.json', JSON.stringify(schedule));
+  writeFileSync('./dist/schedule.json', JSON.stringify(schedule));
 };
 
 const getSchedule = async () => {
@@ -79,6 +80,7 @@ const getSchedule = async () => {
   }
   writeJSON();
 };
+getSchedule();
 
 cron.schedule('0 * * * *', () => {
   getSchedule();

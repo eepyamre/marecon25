@@ -14,6 +14,7 @@ const vendors = [
       'Pins, wallscrolls, playmats, and hats from artist Rocket-LawnChair ',
     link: 'https://ko-fi.com/rocketlawnchair/shop',
     images: getImages(4, 'rocket_lawn_chair', 'jpg'),
+    hint: 'Use code: "MC25" at checkout for 15% off your order!',
   },
   {
     title: 'Fallen Oak Equine Rescue',
@@ -192,6 +193,7 @@ export const Vendors = () => {
               )}
             </div>
             <p>{item.description}</p>
+            {item.hint && <p class={css.superSecret}>{item.hint}</p>}
             <a
               target={'_blank'}
               href={item.link}

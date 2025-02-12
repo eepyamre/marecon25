@@ -180,3 +180,15 @@ a.visitBtn {
     display: flex;
   }
 }
+
+.superSecret {
+  font-size: 0.7rem;
+  background-color: #000;
+  color: #000;
+  display: block;
+  width: fit-content;
+
+  &:hover {
+    color: #fff;
+  }
+}

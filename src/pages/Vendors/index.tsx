@@ -39,7 +39,7 @@ const vendors = [
   {
     title: 'Darkdoomer',
     description:
-      'digital art, traditional art, and eventually decals and stuffs.',
+      'Digital art, traditional art, and eventually decals and stuffs.',
     link: 'https://ponerpics.org/profiles/darkdoomer/commission',
     images: getImages(4, 'darkdoomer', 'png'),
   },
@@ -57,9 +57,22 @@ const vendors = [
   },
   {
     title: 'ButtercupSaiyan',
-    description: 'pony stickers and designs',
+    description: 'Pony stickers and designs',
     link: 'https://www.redbubble.com/people/buttercupsaiyan/shop',
     images: getImages(4, 'buttercup', 'jpg'),
+  },
+  {
+    title: "Floral's Garden of Mares",
+    description:
+      "Why hello there stranger. Do you like mares? Do you enjoy watching mares do mare things? Do you enjoy their snowpity? Then you came to the right place. At Floral's Garden, all of your dreams are in season and ready to be harvested. We have a variety of waifu materials to be purchased, from prints, stickers, dakis, you name it. Come embrace yourself with mares. Do you have an idea for a drawing you're dying to see come to life? Ask the artist for a commission! Come stop by Floral's Garden of Mares, we promise we won't disappoint.",
+    link: 'https://ko-fi.com/floralsh_tpost/shop',
+    images: getImages(10, 'floral', 'jpg'),
+  },
+  {
+    title: 'Snowpity.shop',
+    description: 'Pony themed soap and fragrance spray',
+    link: 'https://snowpity.shop',
+    images: getImages(4, 'snowpity', 'webp'),
   },
 ];
 

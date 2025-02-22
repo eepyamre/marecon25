@@ -48,7 +48,7 @@ export function App() {
             <img src={swoosh} alt='swoosh' />
           </div>
         </div>
-        <Ad />
+        {/* <Ad /> */}
       </div>
     </LocationProvider>
   );

@@ -121,7 +121,9 @@ export function Home() {
         ref={video}
         class={css.video}
       >
-        <div className={css.videoTitle}>{ch1?.title || 'Intermission'}</div>
+        <div className={css.videoTitle}>
+          On Mare's stage <br /> "{ch1?.title || 'Intermission'}"
+        </div>
         <svg
           version='1.1'
           xmlns='http://www.w3.org/2000/svg'

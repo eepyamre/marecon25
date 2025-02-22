@@ -152,3 +152,19 @@
     color: #e2358a;
   }
 }
+
+@media (max-width: 768px) {
+  .watchOnline {
+    left: 0;
+    right: 0;
+    padding-top: 20px;
+  }
+
+  .title {
+    display: none;
+  }
+  .video {
+    margin-top: 98px;
+    height: 300px;
+  }
+}

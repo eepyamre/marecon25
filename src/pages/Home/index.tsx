@@ -1,27 +1,127 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { formatTimeUntil } from '@/utils';
 import teaParty from '@/assets/images/tea_party.png';
 import css from './style.module.scss';
+import { useSchedule } from '@/helpers/useSchedue';
+import { getPreview } from '@/helpers/getPreview';
 
 const date = 1740771000;
+const day = (() => {
+  const d1 = 1740747600000;
+  const d2 = 1740747600000;
+  if (Date.now() > d2) {
+    return 'sunday';
+  }
+  if (Date.now() > d1) {
+    return 'saturday';
+  }
+  return 'friday';
+})();
 
 export function Home() {
-  const [remainig, setRemaining] = useState(formatTimeUntil(date));
+  const { events } = useSchedule(day);
+  const video = useRef<HTMLAnchorElement>();
+
+  const ch1 = useMemo(() => {
+    const now = Date.now();
+    const activeItem = events.track1.find((item) => {
+      if (!item) return false;
+      const endTime = new Date(
+        item.time.getTime() + item.width * 15 * 60 * 1000
+      );
+      return item.time.getTime() <= now && now < endTime.getTime();
+    });
+    return activeItem;
+  }, [events]);
+
+  const ch2 = useMemo(() => {
+    const now = Date.now();
+    const activeItem = events.track2.find((item) => {
+      if (!item) return false;
+      const endTime = new Date(
+        item.time.getTime() + item.width * 15 * 60 * 1000
+      );
+      return item.time.getTime() <= now && now < endTime.getTime();
+    });
+    return activeItem;
+  }, [events]);
+
+  const updateBg = async () => {
+    const data = await getPreview();
+    if (!data) return;
+    if (data.type === 'yt') {
+      const urls = [
+        `https://img.youtube.com/vi/${data.id}/maxresdefault.jpg`,
+        `https://img.youtube.com/vi/${data.id}/0.jpg`,
+        `https://img.youtube.com/vi/${data.id}/1.jpg`,
+        `https://img.youtube.com/vi/${data.id}/2.jpg`,
+        `https://img.youtube.com/vi/${data.id}/3.jpg`,
+      ];
+      const setBackgroundYT = (urlIndex: number) => {
+        if (urlIndex > 4) return;
+        let img = new Image();
+        img.src = urls[urlIndex];
+
+        img.onload = function () {
+          video.current.style.backgroundImage = `url('${urls[urlIndex]}')`;
+        };
+
+        img.onerror = function () {
+          setBackgroundYT(urlIndex + 1);
+        };
+      };
+      setBackgroundYT(0);
+    }
+
+    if (data.type === 'fi' && data.img) {
+      video.current.style.backgroundImage = `url('${data.img}')`;
+    }
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setRemaining(formatTimeUntil(date));
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+    if (!video.current) return;
+    updateBg();
+  }, [ch1, video]);
+
+  // const [remainig, setRemaining] = useState(formatTimeUntil(date));
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setRemaining(formatTimeUntil(date));
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, []);
 
   return (
     <div class={css.wrapper}>
-      {/* <div className={css.bg}></div>
+      <div className={css.bg}></div>
       <h1 class={css.title}>LIV LIV LIV</h1>
 
-      <a target={'_blank'} href={'https://cytu.be/r/marecon'} class={css.video}>
+      <div class={css.watchOnline}>
+        <div class={css.secondTitle}>
+          <p>
+            Now on Comfy's Cottage: <span>{ch2?.title || 'Intermission'}</span>
+          </p>
+        </div>
+        <div class={css.btnWrapper}>
+          <a
+            target={'_blank'}
+            href={'https://cytu.be/r/marecon2-comfys-cottage'}
+            class={css.btn}
+          >
+            Watch Online
+          </a>
+        </div>
+      </div>
+
+      <a
+        target={'_blank'}
+        href={'https://cytu.be/r/marecon'}
+        ref={video}
+        class={css.video}
+      >
+        <div className={css.videoTitle}>{ch1?.title || 'Intermission'}</div>
         <svg
           version='1.1'
           xmlns='http://www.w3.org/2000/svg'
@@ -36,11 +136,11 @@ export function Home() {
             fill={'currentColor'}
           ></path>
         </svg>
-      </a> */}
+      </a>
 
-      <h1 class={css.title}>(\ Soon /)</h1>
+      {/* <h1 class={css.title}>(\ Soon /)</h1>
       <h2 class={css.timer}>{remainig}</h2>
-      <img class={css.img} src={teaParty} alt='mmm yummy tea ' />
+      <img class={css.img} src={teaParty} alt='mmm yummy tea ' /> */}
     </div>
   );
 }

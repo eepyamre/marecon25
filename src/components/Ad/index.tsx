@@ -8,9 +8,11 @@ export const Ad = () => {
     },
   ];
 
+  const idx = Math.floor(Math.random() * ad.length);
+
   return (
-    <a class={css.ad_wrapper} href={ad[0].url} target={'_blank'}>
-      <img class={css.ad} src={ad[0].image} alt='ad ad ad ad' />
+    <a class={css.ad_wrapper} href={ad[idx].url} target={'_blank'}>
+      <img class={css.ad} src={ad[idx].image} alt='ad ad ad ad' />
     </a>
   );
 };

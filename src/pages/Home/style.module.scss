@@ -31,7 +31,7 @@
   width: 64px;
   height: 64px;
   color: #f9c5dc;
-  background-color: #8b8b8b56;
+  background-color: #5e5e5e9b;
   border-radius: 50%;
   padding: 12px;
 }
@@ -80,7 +80,7 @@
   width: 100%;
   padding: 4px 0;
   text-align: center;
-  background-color: #000000a8;
+  background-color: #00000092;
 }
 
 .watchOnline {
@@ -151,6 +151,14 @@
   span {
     color: #e2358a;
   }
+}
+
+.playWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {

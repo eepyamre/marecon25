@@ -36,9 +36,14 @@ export function Sidebar({ open, close }: { open: boolean; close: () => void }) {
         <a href={'/vendors'}>Vendors</a>
         <a href={'/schedule'}>Schedule</a>
         <a href={'/faq'}>FAQ</a>
-        <a href={'https://2024.marecon.live'}>Check Marecon 2024 archive</a>
         <a target={'_blank'} href={'https://fallenoak.org/'}>
           Help the horsies
+        </a>
+        <a href={'https://itch.io/jam/marecon-mlp-game-jam-asset-edition'}>
+          /mlp/ Game Jam
+        </a>
+        <a target={'_blank'} href={'https://2024.marecon.live'}>
+          Marecon 2024 archive
         </a>
         <a
           target={'_blank'}

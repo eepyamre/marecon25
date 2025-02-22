@@ -15,8 +15,9 @@ import { FAQ } from '@/pages/FAQ';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import swoosh from '@/assets/images/swoosh.png';
-import '@/style.scss';
 import { useState } from 'preact/hooks';
+import '@/style.scss';
+import { Ad } from './components/Ad';
 
 export function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -27,7 +28,7 @@ export function App() {
 
   return (
     <LocationProvider>
-      <div className='global_wrapper'>
+      <div class='global_wrapper'>
         <Header toggleSidebar={toggleSidebar} />
         <div class={`grid`}>
           <Sidebar open={isSidebarOpen} close={() => setIsSidebarOpen(false)} />
@@ -42,11 +43,12 @@ export function App() {
               <Route default component={NotFound} />
             </Router>
           </main>
-          <div className='swooshes'>
+          <div class='swooshes'>
             <img src={swoosh} alt='swoosh' />
             <img src={swoosh} alt='swoosh' />
           </div>
         </div>
+        <Ad />
       </div>
     </LocationProvider>
   );

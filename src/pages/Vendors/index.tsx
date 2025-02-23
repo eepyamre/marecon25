@@ -12,27 +12,27 @@ const vendors = [
     title: "Rocket's Equine Outpost",
     description:
       'Pins, wallscrolls, playmats, and hats from artist Rocket-LawnChair ',
-    link: 'https://ko-fi.com/rocketlawnchair/shop',
+    link: 'https://ko-fi.com/rocketlawnchair/shop/',
     images: getImages(4, 'rocket_lawn_chair', 'jpg'),
     hint: 'Use code: "MC25" at checkout for 15% off your order!',
   },
   {
     title: 'Fallen Oak Equine Rescue',
     description: 'Stickers, Enamel Pins, Magnets to Support Horses in need!',
-    link: 'https://www.etsy.com/shop/FallenOakRescue',
+    link: 'https://www.etsy.com/shop/FallenOakRescue/',
     images: getImages(2, 'fallenoak', 'jpg'),
   },
   {
     title: 'Mare Wear',
     description: 'The final word on bespoke mare apparel.',
-    link: 'https://ko-fi.com/comforble/shop',
+    link: 'https://ko-fi.com/comforble/shop/',
     images: getImages(4, 'marewear', 'webp'),
   },
   {
     title: 'Mare Fair 2025',
     description:
       'A pony first convention for adult fans of My Little Pony taking place in Orlando, FL, on September 5-7, 2025',
-    link: 'https://marefair.org',
+    link: 'https://marefair.org/',
     images: getImages(1, 'marefair', 'png'),
   },
 
@@ -40,39 +40,46 @@ const vendors = [
     title: 'Darkdoomer',
     description:
       'Digital art, traditional art, and eventually decals and stuffs.',
-    link: 'https://ponerpics.org/profiles/darkdoomer/commission',
+    link: 'https://ponerpics.org/profiles/darkdoomer/commission/',
     images: getImages(4, 'darkdoomer', 'png'),
   },
   {
     title: 'Sigil.Horse',
     description: 'USB Drives, Playing Cards, Color Engraved Knives, Cool Shit™',
-    link: 'https://www.sigil.horse',
+    link: 'https://www.sigil.horse/',
     images: getImages(3, 'sigil', 'jpg'),
   },
   {
     title: 'Fungeon',
     description: 'Stained glass style resin art of mares',
-    link: 'https://fungeon.etsy.com',
+    link: 'https://fungeon.etsy.com/',
     images: ['/vendors/fungeon/video.mp4', ...getImages(5, 'fungeon', 'jpg')],
   },
   {
     title: 'ButtercupSaiyan',
     description: 'Pony stickers and designs',
-    link: 'https://www.redbubble.com/people/buttercupsaiyan/shop',
+    link: 'https://www.redbubble.com/people/buttercupsaiyan/shop/',
     images: getImages(4, 'buttercup', 'jpg'),
   },
   {
     title: "Floral's Garden of Mares",
     description:
       "Why hello there stranger. Do you like mares? Do you enjoy watching mares do mare things? Do you enjoy their snowpity? Then you came to the right place. At Floral's Garden, all of your dreams are in season and ready to be harvested. We have a variety of waifu materials to be purchased, from prints, stickers, dakis, you name it. Come embrace yourself with mares. Do you have an idea for a drawing you're dying to see come to life? Ask the artist for a commission! Come stop by Floral's Garden of Mares, we promise we won't disappoint.",
-    link: 'https://ko-fi.com/floralsh_tpost/shop',
+    link: 'https://ko-fi.com/floralsh_tpost/shop/',
     images: getImages(10, 'floral', 'jpg'),
   },
   {
     title: 'Snowpity.shop',
     description: 'Pony themed soap and fragrance spray',
-    link: 'https://snowpity.shop',
+    link: 'https://snowpity.shop/',
     images: getImages(4, 'snowpity', 'webp'),
+  },
+  {
+    title: 'Born to Silly',
+    description:
+      'Born to Silly is a heartfelt art pack featuring adorable fillies and the loving mare moms who care for them. ',
+    link: 'https://borntosilly.com/',
+    images: getImages(4, 'silly', 'webp'),
   },
 ];
 

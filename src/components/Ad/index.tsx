@@ -3,8 +3,16 @@ import css from './styles.module.scss';
 export const Ad = () => {
   const ad = [
     {
-      url: 'https://ko-fi.com/rocketlawnchair/shop',
+      url: 'https://ko-fi.com/rocketlawnchair/shop/',
       image: '/vendors/rocket_lawn_chair/banner.png',
+    },
+    {
+      url: 'https://borntosilly.com/',
+      image: '/vendors/silly/banner.webp',
+    },
+    {
+      url: 'https://fungeon.etsy.com/',
+      image: '/vendors/fungeon/banner.gif',
     },
   ];
 

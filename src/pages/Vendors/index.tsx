@@ -9,7 +9,7 @@ const getImages = (count: number, folder: string, format: string) => {
 
 const vendors = [
   {
-    title: 'Rocket Lawn Chair',
+    title: "Rocket's Equine Outpost",
     description:
       'Pins, wallscrolls, playmats, and hats from artist Rocket-LawnChair ',
     link: 'https://ko-fi.com/rocketlawnchair/shop',

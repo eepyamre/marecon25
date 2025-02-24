@@ -4,8 +4,8 @@ import nawni from '@/assets/images/nawni_shop.png';
 import css from './styles.module.scss';
 
 export const Shop = () => {
+  return null;
   const location = useLocation();
-
   if (location.path !== '/') return null;
 
   return (

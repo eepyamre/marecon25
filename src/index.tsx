@@ -4,6 +4,7 @@ import {
   Route,
   hydrate,
   prerender as ssr,
+  useLocation,
 } from 'preact-iso';
 
 import { Home } from '@/pages/Home';
@@ -18,10 +19,10 @@ import swoosh from '@/assets/images/swoosh.png';
 import { useState } from 'preact/hooks';
 import '@/style.scss';
 import { Ad } from './components/Ad';
+import { Shop } from './components/Shop';
 
 export function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
@@ -49,6 +50,7 @@ export function App() {
           </div>
         </div>
         <Ad />
+        <Shop />
       </div>
     </LocationProvider>
   );

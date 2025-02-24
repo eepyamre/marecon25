@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'preact/hooks';
 import css from './styles.module.scss';
 
 export const Ad = () => {
+  const [idx, setIdx] = useState<number | null>(null);
   const ad = [
     {
       url: 'https://ko-fi.com/rocketlawnchair/shop/',
@@ -20,7 +22,11 @@ export const Ad = () => {
     },
   ];
 
-  const idx = Math.floor(Math.random() * ad.length);
+  useEffect(() => {
+    setIdx(Math.floor(Math.random() * ad.length));
+  }, []);
+
+  if (idx === null) return null;
 
   return (
     <a class={css.ad_wrapper} href={ad[idx].url} target={'_blank'}>

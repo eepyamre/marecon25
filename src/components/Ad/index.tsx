@@ -6,13 +6,17 @@ export const Ad = () => {
       url: 'https://ko-fi.com/rocketlawnchair/shop/',
       image: '/vendors/rocket_lawn_chair/banner.png',
     },
-    {
-      url: 'https://borntosilly.com/',
-      image: '/vendors/silly/banner.webp',
-    },
+    // {
+    //   url: 'https://borntosilly.com/',
+    //   image: '/vendors/silly/banner.webp',
+    // },
     {
       url: 'https://fungeon.etsy.com/',
       image: '/vendors/fungeon/banner.gif',
+    },
+    {
+      url: 'https://snowpity.shop/',
+      image: '/vendors/snowpity/banner.png',
     },
   ];
 

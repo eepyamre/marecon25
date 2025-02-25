@@ -74,6 +74,12 @@ const vendors = [
     link: 'https://snowpity.shop/',
     images: getImages(4, 'snowpity', 'webp'),
   },
+  {
+    title: 'Limited Lyra "Sexy Pants" T-Shirts',
+    description: 'One item, limited preorder of Lyra Pants T-Shirts',
+    link: 'https://www.mouseu.shop/',
+    images: getImages(2, 'loira', 'png'),
+  },
   // {
   //   title: 'Born to Silly',
   //   description:

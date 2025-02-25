@@ -20,6 +20,22 @@ export const Ad = () => {
       url: 'https://snowpity.shop/',
       image: '/vendors/snowpity/banner.png',
     },
+    {
+      url: 'https://www.mouseu.shop/',
+      image: '/vendors/loira/banner.png',
+    },
+    {
+      url: 'https://ko-fi.com/floralsh_tpost/shop/',
+      image: '/vendors/floral/banner.png',
+    },
+    {
+      url: 'https://www.redbubble.com/people/buttercupsaiyan/shop/',
+      image: '/vendors/buttercup/banner.png',
+    },
+    {
+      url: 'https://ponerpics.org/profiles/darkdoomer/commission/',
+      image: '/vendors/darkdoomer/banner.png',
+    },
   ];
 
   useEffect(() => {

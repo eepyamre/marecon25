@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 
 export type TrackData = {
   title: string;
@@ -8,6 +8,31 @@ export type TrackData = {
 };
 
 const min15 = 15 * 60 * 1000;
+
+const constructDate = (timeStr: string) => {
+  const [time, modifier, gmtPart] = timeStr.split(' '); // ["11:30", "PM", "GMT-0500"]
+  let [hours, minutes] = time.split(':').map(Number);
+
+  // Convert to 24-hour format
+  if (modifier.toUpperCase() === 'PM' && hours !== 12) {
+    hours += 12;
+  } else if (modifier.toUpperCase() === 'AM' && hours === 12) {
+    hours = 0;
+  }
+
+  // Format hours and minutes as two digits
+  const formattedHours = hours.toString().padStart(2, '0');
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+
+  // Extract the timezone offset (e.g., "-0500") and insert a colon to get "-05:00"
+  const tzOffset = gmtPart.replace('GMT', ''); // "-0500"
+  const formattedTz = `${tzOffset.slice(0, 3)}:${tzOffset.slice(3)}`;
+
+  // Construct the ISO 8601 string
+  return new Date(
+    `2025-02-28T${formattedHours}:${formattedMinutes}:00${formattedTz}`
+  );
+};
 
 export const useSchedule = (day: string) => {
   const [times, setTimes] = useState<Date[]>([]);
@@ -50,7 +75,8 @@ export const useSchedule = (day: string) => {
       for (let i = 0; i < data.length; i++) {
         const item = data[i];
         const next = data[i + 1];
-        const startTime = new Date(`2025-02-28 ${item.from}`);
+
+        const startTime = constructDate(item.from);
         const obj: TrackData = {
           title: item.title,
           description: item.description,
@@ -61,7 +87,7 @@ export const useSchedule = (day: string) => {
         track.push(obj);
 
         if (next) {
-          const endTime = new Date(`2025-02-28 ${next.from}`).getTime();
+          const endTime = constructDate(next.from).getTime();
           const diffBlocks =
             (endTime - startTime.getTime()) / 1000 / 60 / 15 - obj.width;
 

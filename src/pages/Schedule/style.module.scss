@@ -101,6 +101,20 @@
   }
 }
 
+.row {
+  display: flex;
+  margin-top: 12px;
+  gap: 12px;
+
+  .hint {
+    font-size: 0.8rem;
+  }
+
+  .apply {
+    flex-shrink: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .wrapper {
     padding: 12px 0px;

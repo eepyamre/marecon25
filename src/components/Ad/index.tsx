@@ -36,6 +36,14 @@ export const Ad = () => {
       url: 'https://ponerpics.org/profiles/darkdoomer/commission/',
       image: '/vendors/darkdoomer/banner.png',
     },
+    {
+      url: 'https://pone.voyage/',
+      image: '/vendors/pv/banner.png',
+    },
+    {
+      url: 'https://ko-fi.com/comforble/shop/',
+      image: '/vendors/marewear/banner.png',
+    },
   ];
 
   useEffect(() => {

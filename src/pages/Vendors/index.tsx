@@ -26,7 +26,7 @@ const vendors = [
     title: 'Mare Wear',
     description: 'The final word on bespoke mare apparel.',
     link: 'https://ko-fi.com/comforble/shop/',
-    images: getImages(4, 'marewear', 'webp'),
+    images: getImages(5, 'marewear', 'webp'),
   },
   {
     title: 'Mare Fair 2025',
@@ -75,10 +75,17 @@ const vendors = [
     images: getImages(4, 'snowpity', 'webp'),
   },
   {
-    title: 'Limited Lyra "Sexy Pants" T-Shirts',
+    title: 'Limited "Sexy Pants" T-Shirts',
     description: 'One item, limited preorder of Lyra Pants T-Shirts',
     link: 'https://www.mouseu.shop/',
     images: getImages(2, 'loira', 'png'),
+  },
+  {
+    title: 'Pone Voyage',
+    description:
+      'Pone Voyage is a My Little Pony fan meetup that takes place on a cruise ship at sea.',
+    link: 'https://pone.voyage/',
+    images: getImages(1, 'pv', 'png'),
   },
   // {
   //   title: 'Born to Silly',

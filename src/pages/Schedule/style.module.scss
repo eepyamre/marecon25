@@ -3,6 +3,7 @@
   padding: 12px 24px;
   max-width: calc(980px - 200px - 12px);
   transition: max-width 0.3s;
+  position: relative;
 
   &.active {
     max-width: calc(min(1360px + 24px, 100vw) - 200px - 32px);
@@ -53,6 +54,7 @@
 
   .track {
     display: flex;
+    margin-left: 99px;
 
     .trackTitle,
     .emptyItem,
@@ -79,8 +81,10 @@
     .trackTitle {
       background-color: #ee3897;
       color: #fff;
-      width: 100px;
+      width: 98px;
       font-size: 1rem;
+      position: absolute;
+      left: 25px;
     }
 
     &:nth-of-type(2) {
@@ -130,6 +134,7 @@
       flex-direction: column;
       border-left: 1px solid #808bd7;
       flex: 1;
+      margin-left: 0;
 
       .trackTitle,
       .emptyItem,
@@ -140,6 +145,7 @@
         flex-shrink: 0;
         margin: 0;
         border: 0;
+        overflow: hidden;
 
         &:not(:first-of-type) {
           border-top: 1px solid #808bd7;
@@ -151,6 +157,11 @@
         }
       }
     }
+
+    .trackTitle {
+      position: static !important;
+    }
+
     .emptyItem {
       border: none !important;
     }

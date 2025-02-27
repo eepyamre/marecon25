@@ -27,7 +27,6 @@ const constructDate = (date, timeStr) => {
   // Extract the timezone offset (e.g., "-0500") and insert a colon to get "-05:00"
   const tzOffset = gmtPart.replace('GMT', ''); // "-0500"
   const formattedTz = `${tzOffset.slice(0, 3)}:${tzOffset.slice(3)}`;
-  console.log(formattedTz);
   // Construct the ISO 8601 string
   return new Date(
     `${date}T${formattedHours}:${formattedMinutes}:00${formattedTz}`

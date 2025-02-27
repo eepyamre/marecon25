@@ -114,8 +114,12 @@ export function Schedule() {
             );
           })}
         </div>
-        <div class={css.track}>{Track(events.track1, 1)}</div>
-        <div class={css.track}>{Track(events.track2, 2)}</div>
+        <div class={css.track}>
+          {Track(events.track1, 1, 'https://cytu.be/r/marecon')}
+        </div>
+        <div class={css.track}>
+          {Track(events.track2, 2, 'https://cytu.be/r/marecon2-comfys-cottage')}
+        </div>
       </div>
       <div className={css.row}>
         <p class={css.hint}>Time is adjusted according to (you)r time zone!</p>
@@ -134,10 +138,12 @@ export function Schedule() {
   );
 }
 
-const Track = (track: TrackData[], idx: number) => {
+const Track = (track: TrackData[], idx: number, link: string) => {
   return (
     <>
-      <div class={css.trackTitle}>Cytube {idx}</div>
+      <a href={link} class={css.trackTitle} target={'_blank'}>
+        Cytube {idx}
+      </a>
       {track.map((item, i) => {
         if (!item) return <div class={css.emptyItem} />;
         return (

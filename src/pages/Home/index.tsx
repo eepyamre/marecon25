@@ -57,6 +57,7 @@ export function Home() {
         `https://img.youtube.com/vi/${data.id}/1.jpg`,
         `https://img.youtube.com/vi/${data.id}/2.jpg`,
         `https://img.youtube.com/vi/${data.id}/3.jpg`,
+        '/eeee.png',
       ];
       const setBackgroundYT = (urlIndex: number) => {
         if (urlIndex > 4) return;
@@ -64,7 +65,11 @@ export function Home() {
         img.src = urls[urlIndex];
 
         img.onload = function () {
-          video.current.style.backgroundImage = `url('${urls[urlIndex]}')`;
+          if (img.naturalWidth === 120 && img.naturalHeight === 90) {
+            setBackgroundYT(urlIndex + 1);
+          } else {
+            video.current.style.backgroundImage = `url('${urls[urlIndex]}')`;
+          }
         };
 
         img.onerror = function () {

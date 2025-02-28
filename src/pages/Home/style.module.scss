@@ -10,9 +10,11 @@
 }
 
 .img {
-  width: 100%;
+  margin-top: 24px;
+  width: auto;
+  height: 100%;
   max-width: 722px;
-  max-height: 414px;
+  max-height: 350px;
 }
 
 .title {
@@ -22,9 +24,9 @@
 
 .timer {
   text-align: center;
-  font-size: 2.5rem;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .play {
@@ -159,6 +161,10 @@
   align-items: center;
   font-size: 1.2rem;
   font-weight: 700;
+}
+.btns {
+  display: flex;
+  gap: 24px;
 }
 
 @media (max-width: 768px) {

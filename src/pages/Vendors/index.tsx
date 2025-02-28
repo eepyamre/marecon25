@@ -78,7 +78,11 @@ const vendors = [
     title: 'Limited "Sexy Pants" T-Shirts',
     description: 'One item, limited preorder of Lyra Pants T-Shirts',
     link: 'https://www.mouseu.shop/',
-    images: getImages(2, 'loira', 'png'),
+    images: [
+      `/vendors/loira/1.gif`,
+      `/vendors/loira/2.webp`,
+      `/vendors/loira/3.webp`,
+    ],
   },
   {
     title: 'Pone Voyage',

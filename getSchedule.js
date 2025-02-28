@@ -67,13 +67,17 @@ const getSchedule = async () => {
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i];
     const rowIdx = i + 5;
-    if (rowIdx === 71) {
+    if (rowIdx === 54) {
       date = '2025-03-01';
+    }
+    if (rowIdx === 71) {
       day++;
       continue;
     }
-    if (rowIdx === 153) {
+    if (rowIdx === 134) {
       date = '2025-03-02';
+    }
+    if (rowIdx === 153) {
       day++;
       continue;
     }

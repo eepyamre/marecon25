@@ -25,7 +25,7 @@ export function Schedule() {
         left: 0,
         behavior: 'instant',
       });
-  }, [schedule]);
+  }, [schedule, day]);
 
   useEffect(() => {
     const fn = (e: TouchEvent) => {

@@ -91,13 +91,13 @@ const vendors = [
     link: 'https://pone.voyage/',
     images: getImages(1, 'pv', 'png'),
   },
-  // {
-  //   title: 'Born to Silly',
-  //   description:
-  //     'Born to Silly is a heartfelt art pack featuring adorable fillies and the loving mare moms who care for them. ',
-  //   link: 'https://borntosilly.com/',
-  //   images: getImages(4, 'silly', 'webp'),
-  // },
+  {
+    title: 'Born to Silly',
+    description:
+      'Born to Silly is a heartfelt art pack featuring adorable fillies and the loving mare moms who care for them. ',
+    link: 'https://borntosilly.com/',
+    images: getImages(4, 'silly', 'webp'),
+  },
 ];
 
 const discover = [

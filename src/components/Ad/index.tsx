@@ -44,6 +44,10 @@ export const Ad = () => {
       url: 'https://ko-fi.com/comforble/shop/',
       image: '/vendors/marewear/banner.png',
     },
+    {
+      url: 'https://marefair.org/',
+      image: '/vendors/marefair/banner.png',
+    },
   ];
 
   useEffect(() => {

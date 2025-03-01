@@ -123,13 +123,13 @@ export function Schedule() {
       </div>
       <div className={css.row}>
         <p class={css.hint}>Time is adjusted according to (you)r time zone!</p>
-        <a
+        {/* <a
           class={`global_btn ${css.apply}`}
           target={'_blank'}
           href={'https://forms.gle/kXxHwiyC1iBdmTFT8'}
         >
           Apply for panels!
-        </a>
+        </a> */}
       </div>
       {tooltipData.visible && (
         <Tooltip position={tooltipData.position}>{tooltipData.text}</Tooltip>

@@ -183,13 +183,13 @@ export const Vendors = () => {
     <div class={css.wrapper}>
       <div class={css.row}>
         <h2>Vendors</h2>
-        <a
+        {/* <a
           class={`global_btn ${css.btn}`}
           target={'_blank'}
           href={'https://forms.gle/L1T3pik49oVndbUN9'}
         >
           Want to be a vendor?
-        </a>
+        </a> */}
       </div>
       <div class={css.vendors}>
         {vendors.map((item, i) => (
@@ -241,13 +241,13 @@ export const Vendors = () => {
           </div>
         ))}
       </div>
-      <a
+      {/* <a
         class={`global_btn ${css.btn} ${css.vendorBottom}`}
         target={'_blank'}
         href={'https://forms.gle/L1T3pik49oVndbUN9'}
       >
         Want to be a vendor?
-      </a>
+      </a> */}
     </div>
   );
 };

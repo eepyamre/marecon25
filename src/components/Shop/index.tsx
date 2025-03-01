@@ -113,6 +113,17 @@ export const Shop = () => {
             <img src={colgate} alt='image' />
             <p class={css.itemTitle}>Colgate 3d</p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://carrotpone.itch.io/lyra-the-oat-thief'}
+            class={css.item}
+          >
+            <img
+              src='https://img.itch.zone/aW1nLzIwMDk1NTk3LnBuZw==/315x250%23c/WGsxw2.png'
+              alt='image'
+            />
+            <p class={css.itemTitle}>Lyra the Oat Thief</p>
+          </a>
         </div>
       </div>
 

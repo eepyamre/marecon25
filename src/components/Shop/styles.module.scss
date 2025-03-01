@@ -26,6 +26,9 @@
 
 .content {
   padding: 12px;
+  padding-top: 24px;
+  overflow: hidden;
+  position: relative;
 }
 
 .header {
@@ -75,7 +78,7 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  flex-basis: 25%;
+  flex-basis: 24%;
 
   &:hover {
     text-decoration-color: #9b258f;
@@ -97,6 +100,10 @@
     font-weight: 600;
     text-transform: uppercase;
   }
+}
+
+.contentMerch .item:hover {
+  text-decoration: none;
 }
 
 .btn {
@@ -142,6 +149,26 @@
   }
 }
 
+.placeholder {
+  // pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #e769b0;
+  width: 150%;
+  padding: 12px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  transform: rotate(10deg);
+  outline: 2px solid #e769b0;
+  box-shadow: 0 0 10px 10px #e769b0;
+  font-weight: 700;
+}
+
 @media (max-width: 768px) {
   .items {
     flex-wrap: wrap;
@@ -149,5 +176,5 @@
 }
 
 .header2 {
-  // margin-top: 12px;
+  margin-top: 12px;
 }

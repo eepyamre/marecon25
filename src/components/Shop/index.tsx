@@ -210,6 +210,21 @@ export const Shop = () => {
               Meet-a-Mare Special Episode: True Love is a Rarity!
             </p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://qtstudios.itch.io/derpys-hearts-and-hooves'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTA5NDA0LnBuZw==/315x250%23c/Cr2R22.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>
+              Derpy's hearts and hooves day mailroom sorting simulator
+            </p>
+          </a>
         </div>
       </div>
 

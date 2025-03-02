@@ -171,6 +171,19 @@ export const Shop = () => {
             <img src={numget} alt='image' />
             <p class={css.itemTitle}>numget survivors</p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://mcford.itch.io/find-your-mare-simulator-2025'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTA3NzMzLnBuZw==/315x250%23c/LrZUB0.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>Find Your Mare Simulator 2025</p>
+          </a>
         </div>
       </div>
 

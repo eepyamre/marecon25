@@ -225,6 +225,19 @@ export const Shop = () => {
               Derpy's hearts and hooves day mailroom sorting simulator
             </p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://bristolpone.itch.io/melodys-afternoon-walk'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTA4OTM1LnBuZw==/315x250%23c/ryogED.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>Melody's Afternoon Walk</p>
+          </a>
         </div>
       </div>
 

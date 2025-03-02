@@ -124,6 +124,32 @@ export const Shop = () => {
             />
             <p class={css.itemTitle}>Lyra the Oat Thief</p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://weegeesaurus.itch.io/mare-ware'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMDk4Nzc2LnBuZw==/315x250%23c/4WSw7s.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>MARE WARE</p>
+          </a>
+          <a
+            target={'_blank'}
+            href={'https://stubbyshub.itch.io/pixel-buckball'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTAxNjY3LnBuZw==/315x250%23c/fMi9yZ.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>Pixel Buckball</p>
+          </a>
         </div>
       </div>
 

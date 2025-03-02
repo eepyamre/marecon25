@@ -1,5 +1,5 @@
 import { useLocation } from 'preact-iso';
-import numget from '@/assets/images/numbeam.png';
+import numget from '@/assets/images/jam/numget.png';
 import nawni from '@/assets/images/nawni_shop.png';
 import play from '@/assets/images/play.png';
 import colgate from '@/assets/images/jam/colgate.png';
@@ -162,6 +162,14 @@ export const Shop = () => {
               alt='image'
             />
             <p class={css.itemTitle}>Replica, Replica</p>
+          </a>
+          <a
+            target={'_blank'}
+            href={'https://sigilponies.itch.io/numget-survivors'}
+            class={css.item}
+          >
+            <img src={numget} alt='image' />
+            <p class={css.itemTitle}>numget survivors</p>
           </a>
         </div>
       </div>

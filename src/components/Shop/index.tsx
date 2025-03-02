@@ -193,6 +193,23 @@ export const Shop = () => {
             <img src={loira} alt='image' />
             <p class={css.itemTitle}>The Lyra Parable Prototype</p>
           </a>
+          <a
+            target={'_blank'}
+            href={
+              'https://mystic-moonglow.itch.io/meet-a-mare-special-episode-true-love-is-a-rarity'
+            }
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTAyMDAyLnBuZw==/315x250%23c/v9sNGV.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>
+              Meet-a-Mare Special Episode: True Love is a Rarity!
+            </p>
+          </a>
         </div>
       </div>
 

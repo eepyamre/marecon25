@@ -150,6 +150,19 @@ export const Shop = () => {
             />
             <p class={css.itemTitle}>Pixel Buckball</p>
           </a>
+          <a
+            target={'_blank'}
+            href={'https://alki555.itch.io/replica-replica'}
+            class={css.item}
+          >
+            <img
+              src={
+                'https://img.itch.zone/aW1nLzIwMTAzMTU4LnBuZw==/315x250%23c/gNSe%2Bi.png'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>Replica, Replica</p>
+          </a>
         </div>
       </div>
 

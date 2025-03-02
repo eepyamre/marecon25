@@ -1,5 +1,6 @@
 import { useLocation } from 'preact-iso';
 import numget from '@/assets/images/jam/numget.png';
+import loira from '@/assets/images/jam/loira.png';
 import nawni from '@/assets/images/nawni_shop.png';
 import play from '@/assets/images/play.png';
 import colgate from '@/assets/images/jam/colgate.png';
@@ -183,6 +184,14 @@ export const Shop = () => {
               alt='image'
             />
             <p class={css.itemTitle}>Find Your Mare Simulator 2025</p>
+          </a>
+          <a
+            target={'_blank'}
+            href={'https://livinglinguini.itch.io/the-lyra-parable'}
+            class={css.item}
+          >
+            <img src={loira} alt='image' />
+            <p class={css.itemTitle}>The Lyra Parable Prototype</p>
           </a>
         </div>
       </div>

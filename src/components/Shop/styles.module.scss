@@ -103,9 +103,12 @@
 }
 
 .contentMerch .item {
-  width: 25%;
   align-self: stretch;
   text-align: center;
+
+  img {
+    max-width: 220px;
+  }
 }
 
 .btn {

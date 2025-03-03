@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { formatTimeUntil } from '@/utils';
-import teaParty from '@/assets/images/tea_party.png';
 import css from './style.module.scss';
 import { useSchedule } from '@/helpers/useSchedue';
 import { getPreview } from '@/helpers/getPreview';

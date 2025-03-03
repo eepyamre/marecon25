@@ -4,8 +4,6 @@ import loira from '@/assets/images/jam/loira.png';
 import nawni from '@/assets/images/nawni_shop.png';
 import play from '@/assets/images/play.png';
 import colgate from '@/assets/images/jam/colgate.png';
-import merch1 from '@/assets/images/merch/0.webp';
-import merch2 from '@/assets/images/merch/1.webp';
 import merch3 from '@/assets/images/merch/2.webp';
 import merch4 from '@/assets/images/merch/3.webp';
 import css from './styles.module.scss';
@@ -20,25 +18,62 @@ export const Shop = () => {
       <div className={`${css.content} ${css.contentMerch}`}>
         <div class={css.header}>
           <img src={nawni} class={css.nawni} alt='shopkeeper' />
-          <h2>Marecon Merch </h2>
+          <h2>
+            <a href='https://shop.marecon.live/' target={'_blank'}>
+              Marecon Merch
+            </a>
+          </h2>
         </div>
         <div class={css.items}>
-          <div className={css.placeholder}>coming soon!</div>
-          <a target={'_blank'} class={css.item}>
-            <img src={merch1} alt='image' />
-            <p class={css.itemTitle}>T-shirt!? </p>
+          <a
+            target={'_blank'}
+            href={
+              'https://shop.marecon.live/product/marecon-2025-shirt-pre-order'
+            }
+            class={css.item}
+          >
+            <img
+              src={
+                'https://assets.bigcartel.com/product_images/400336680/marecon2025shirtWIP.png?auto=format&fit=max&w=1000'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>marecon 2025 shirt</p>
           </a>
-          <a target={'_blank'} class={css.item}>
-            <img src={merch2} alt='image' />
-            <p class={css.itemTitle}>PIN?</p>
+          <a
+            target={'_blank'}
+            href={
+              'https://shop.marecon.live/product/marecon-2025-pin-pre-order'
+            }
+            class={css.item}
+          >
+            <img
+              src={
+                'https://assets.bigcartel.com/product_images/400337538/marecon2025pinWIP.png?auto=format&fit=max&w=1000'
+              }
+              alt='image'
+            />
+            <p class={css.itemTitle}>marecon 2025 pin</p>
           </a>
-          <a target={'_blank'} class={css.item}>
+          <a
+            target={'_blank'}
+            href={
+              'https://shop.marecon.live/product/marecon-2025-lanyard-pre-order'
+            }
+            class={css.item}
+          >
             <img src={merch3} alt='image' />
-            <p class={css.itemTitle}>Lanyard!</p>
+            <p class={css.itemTitle}>marecon 2025 lanyard</p>
           </a>
-          <a target={'_blank'} class={css.item}>
+          <a
+            target={'_blank'}
+            href={
+              'https://shop.marecon.live/product/marecon-2025-patch-pre-order'
+            }
+            class={css.item}
+          >
             <img src={merch4} alt='image' />
-            <p class={css.itemTitle}>A PONY (REAL)</p>
+            <p class={css.itemTitle}>marecon 2025 patch</p>
           </a>
         </div>
         {/* <div>
@@ -51,7 +86,11 @@ export const Shop = () => {
       <div className={css.content}>
         <div class={`${css.header} ${css.header2}`}>
           <img src={play} class={css.nawni} alt='play play play play play' />
-          <h2>Play</h2>
+          <h2>
+            <a href='https://itch.io/jam/marecon-mlp-game-jam-asset-edition'>
+              Play
+            </a>
+          </h2>
         </div>
         <div class={css.items}>
           <a

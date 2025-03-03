@@ -102,8 +102,10 @@
   }
 }
 
-.contentMerch .item:hover {
-  text-decoration: none;
+.contentMerch .item {
+  width: 25%;
+  align-self: stretch;
+  text-align: center;
 }
 
 .btn {

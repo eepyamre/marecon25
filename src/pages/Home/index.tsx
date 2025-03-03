@@ -102,15 +102,17 @@ export function Home() {
   return (
     <div class={css.wrapper}>
       <div className={css.bg}></div>
-      {Date.now() < date * 1000 ? (
+      {true ? (
         <>
-          <h1 class={css.title}>Starting soon!</h1>
-          <h2 class={css.timer}>{remainig}</h2>
+          <div />
+          <h1 class={css.title}>It's over!</h1>
+          {/* <h2 class={css.timer}>{remainig}</h2> */}
+          <div />
         </>
       ) : (
         <h1 class={css.title}>We're live!</h1>
       )}
-
+      {/* 
       <div class={css.watchOnline}>
         <div class={css.secondTitle}>
           <p>
@@ -126,9 +128,9 @@ export function Home() {
             Watch Online
           </a>
         </div>
-      </div>
+      </div> */}
 
-      <a
+      {/* <a
         target={'_blank'}
         href={'https://cytu.be/r/marecon'}
         ref={video}
@@ -154,7 +156,7 @@ export function Home() {
           </svg>
           <p class={css.cytube}>Watch on Cytube</p>
         </div>
-      </a>
+      </a> */}
     </div>
   );
 }

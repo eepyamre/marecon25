@@ -167,6 +167,18 @@
   gap: 24px;
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+  a {
+    font-size: 2rem;
+    text-decoration: underline;
+    &:hover {
+      color: #f9c5dc;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .watchOnline {
     left: 0;

@@ -47,7 +47,7 @@ export function Sidebar({ open, close }: { open: boolean; close: () => void }) {
         </a>
         <a
           target={'_blank'}
-          href={'https://boards.4chan.org/mlp/thread/41992632'}
+          href={'https://boards.4chan.org/mlp/thread/41996918'}
         >
           Current Thread
         </a>

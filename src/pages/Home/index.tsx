@@ -106,6 +106,14 @@ export function Home() {
           <div />
           <h1 class={css.title}>It's over!</h1>
           {/* <h2 class={css.timer}>{remainig}</h2> */}
+          <div class={css.col}>
+            <a href='https://pony.tube/w/p/e3DSrvP4wy7QGbfZFcFBoK'>
+              Cytube 1 Archive
+            </a>
+            <a href='https://pony.tube/w/p/hMDBFLM16btxirJ28D5MrQ'>
+              Cytube 2 Archive
+            </a>
+          </div>
           <div />
         </>
       ) : (
